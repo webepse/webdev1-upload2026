@@ -19,11 +19,16 @@
                 exit();
             }else{
                 $dossier = "upload/";
+                // basename(dossier/monfichier.jpg) retourne monfichier.jpg
                 $fileName = basename($_FILES['fichier']['name']);
+                // image/png ou image/gif , ...
                 $fileType = $_FILES['fichier']['type'];
+                // recherche dans une chaine une de caractère la dernière occurence du .
                 $extension = strrchr($_FILES['fichier']['name'],'.');
+                // balance de php
                 $size = filesize($_FILES['fichier']['tmp_name']);
 
+                // mes conditions
                 $maxSize = 2000000;
                 $extensions = [".png",".gif",".jpg",".jpeg",".svg"];
                 $mimeType = ["image/png","image/gif","image/jpeg","image/svg+xml"];
@@ -85,3 +90,7 @@
         header("LOCATION:index.php");
         exit();
     }
+
+
+
+

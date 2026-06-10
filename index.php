@@ -11,13 +11,21 @@
     <div class="container">
         <div class="row">
             <div class="col-md-10 offset-md-1">
-                  <form action="traitement.php" method="POST" enctype="multipart/form-data">
+                <?php
+                    if(isset($_GET['error'])){
+                        echo "<div class='alert alert-danger'>Un erreur est survenue (code erreur: ".$_GET['error'].")</div>";
+                    }
+
+
+                ?>
+                  <form action="test.php" method="POST" enctype="multipart/form-data">
                     <div class="form-group">
                         <label for="nom">Nom: </label>
                         <input type="text" name="nom" id="nom" class="form-control">
                     </div>
                     <div class="form-group">
                         <label for="fichier">Fichier</label>
+                        <input type="hidden" name="MAX_FILE_SIZE" value="2000000">
                         <input type="file" name="fichier" id="fichier" class="form-control">
                     </div>
                     <div class="form-group">
@@ -36,9 +44,25 @@
             }
             $req->closeCursor();
         ?>
-    
     </div>
 
 
 </body>
 </html>
+
+index.php?champ=valeur
+
+http://localhost/PHPJordan/2026/webdev1-upload2026/test.php
+
+nom= Hamilton
+prenom = Lewis
+id=23
+slug = hamilton-lewis
+
+www.f1.com/pilote.php?id=23
+www.f1.com/pilote.php?slug=hamilton-lewis
+www.f1.com/pilote/hamilton-lewis
+
+
+
+
