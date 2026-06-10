@@ -18,7 +18,7 @@
 
 
                 ?>
-                  <form action="test.php" method="POST" enctype="multipart/form-data">
+                  <form action="traitement.php" method="POST" enctype="multipart/form-data">
                     <div class="form-group">
                         <label for="nom">Nom: </label>
                         <input type="text" name="nom" id="nom" class="form-control">
